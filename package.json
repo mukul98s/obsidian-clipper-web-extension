@@ -1,19 +1,20 @@
 {
-    "name": "obsidian-clipper-web-extension",
-    "version": "1.0.0",
-    "description": "",
-    "main": "src/index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mukul98s/obsidian-clipper-web-extension"
-    },
-    "author": "Mukul Sharma",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/mukul98s/obsidian-clipper-web-extension/issues"
-    },
-    "homepage": "https://github.com/mukul98s/obsidian-clipper-web-extension#readme",
-    "devDependencies": {
-        "prettier": "3.2.5"
-    }
+  "name": "obsidian-clipper-web-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mukul98s/obsidian-clipper-web-extension"
+  },
+  "author": "Mukul Sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mukul98s/obsidian-clipper-web-extension/issues"
+  },
+  "homepage": "https://github.com/mukul98s/obsidian-clipper-web-extension#readme",
+  "devDependencies": {
+    "prettier": "3.2.5",
+    "@types/chrome": "^0.0.267"
+  }
 }
