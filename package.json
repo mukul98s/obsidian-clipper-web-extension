@@ -14,8 +14,6 @@
     },
     "homepage": "https://github.com/mukul98s/obsidian-clipper-web-extension#readme",
     "devDependencies": {
-        "chrome-types": "^0.1.282",
-        "prettier": "3.2.5",
-        "typescript": "^5.4.5"
+        "prettier": "3.2.5"
     }
 }

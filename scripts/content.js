@@ -16,7 +16,8 @@ if (article) {
     // Support for API reference docs
     const heading = article.querySelector('h1')
     // Support for article docs with date
-    const date = article.querySelector('time')?.parentNode
-
-    ;(date ?? heading).insertAdjacentElement('afterend', badge)
+    const date = article
+        .querySelector('time')
+        ?.parentNode(date ?? heading)
+        .insertAdjacentElement('afterend', badge)
 }
