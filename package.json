@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/mukul98s/obsidian-clipper-web-extension"
