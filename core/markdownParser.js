@@ -25,6 +25,12 @@ export class MarkdownParser {
         'LI': '\n- ?',
     }
 
+    #inlineTags = ['a', 'abbr', 'acronym', 'b', 'cite', 'code', 'em', 'i', 'kbd', 'mark', 'q', 's', 'del', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'time', 'var', 'li', 'p']
+
+    #headings = [
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    ]
+
     /**
      * Get text content from the give Node list
      *
@@ -80,6 +86,7 @@ export class MarkdownParser {
         const markdownTable = []
         const rows = table.querySelectorAll('tr')
 
+        // TODO: Add support for markdown inside the table
         rows.forEach(row => {
             const rowData = []
             const cells = row.childNodes
@@ -116,12 +123,18 @@ export class MarkdownParser {
      * @returns {string}
      */
     getMarkdownContentForLink(child, tab) {
-        const inlineTags = ['a', 'abbr', 'acronym', 'b', 'cite', 'code', 'em', 'i', 'kbd', 'mark', 'q', 's', 'del', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'time', 'var', 'li']
-        const parentTag = child.parentElement.nodeName
-        const isInlineLink = inlineTags.includes(parentTag.toLowerCase())
-
         const href = getUrl(tab.url, child.getAttribute('href'))
-        const markdown = `[${child.textContent.trim()}](${href})`
+        let markdown = `[${child.textContent.trim()}](${href})`
+
+        const parentTag = child.parentNode.nodeName.toLowerCase()
+
+        const isHeadingLink = this.#headings.includes(parentTag)
+        if (isHeadingLink) {
+            const headingMarkdown = '#'.repeat(parseInt(parentTag.charAt(1))) + ' '
+            markdown = headingMarkdown + markdown
+        }
+
+        const isInlineLink = this.#inlineTags.includes(parentTag)
 
         return isInlineLink ? ` ${markdown} ` : `\n\n${markdown}\n\n`
     }
